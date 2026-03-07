@@ -1,0 +1,245 @@
+body{
+    background-color: #F5F5F5;
+}
+
+.container-fluid::before{
+    content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 100%;
+     background-image: url(img/bg.png);
+     z-index: -1;
+     background-position: center;
+     background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+     
+}
+.container-fluid{
+/*    background-color: darkred;*/
+}
+.container-fluid::after{
+    content: '';
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+/*background-color: rgba(245, 245, 245, 0.6); */
+z-index: -1;
+background-position: center;
+background-size: cover;
+
+}
+
+.container-fluid .top {
+/*    background-color: orange;*/
+    height: 250px;
+}
+
+.container-fluid .header{
+    display: flex;
+    width: 100%;
+    align-items: center; /* Vertikal sejajar */
+    gap: 16px;
+}
+
+.header .logo{
+}
+.header .logo img{
+    margin-left: 5rem;
+    width: 5rem;
+    height: auto;
+}
+
+.header .namers{
+    margin-left: 5px;
+
+    display: flex;
+      flex-direction: column;
+      justify-content: center; /* Bikin teks di tengah vertikal */
+      height: 100px;
+}
+
+.header .namers h3
+{
+    font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-align: left;
+  margin-left: 1rem;
+  font-size: 20px;
+  color: #336588;
+   margin: 0;
+
+}
+
+.container-fluid .date{
+    position: absolute;
+    font-family: "Quicksand", sans-serif;
+      font-weight: bold;
+      font-size: 18px;
+      color: #0A4881;
+    font-weight: bold;
+    display: block;
+    right: 1rem;
+    top: 1rem;
+    right: 2rem;
+    text-shadow:
+  0.4px 0 currentColor,
+  -0.4px 0 currentColor,
+  0 0.4px currentColor,
+  0 -0.4px currentColor;
+} 
+
+.header .namers p{
+    font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 7px;
+  color: #B3873D;
+  text-shadow:
+  0.7px 0 currentColor,
+  -0.7px 0 currentColor,
+  0 0.7px currentColor,
+  0 -0.7px currentColor;
+
+
+   margin: 0;
+}
+.container-fluid .information {
+    background-color: rgba(10, 72, 129, 1.0);
+    margin: 0 auto 1rem auto; /* Tengah & bawah 1rem */
+    width: 100%; /* atau berapa pun yang kamu mau */
+    padding: 1rem;
+    border-radius: 1rem;
+    color: white;
+}
+
+.information h2{
+    font-size: 24px;
+    font-family: "Montserrat", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 700;
+      font-style: normal;
+}
+.header .namers p,
+.information h2,
+.information
+{
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  
+}
+
+.information {
+    margin-top: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+   .container-fluid table {
+      width: 100%;
+      border: none;
+      margin: -4rem auto 1rem auto;
+    }
+
+      thead{
+        background-color: skyblue;
+
+      }
+
+      th, td {
+        padding: 5px;
+        text-align: center;
+        border: 1px solid black;
+      }
+
+      #tabelKamar th, #tabelKamar td {
+      text-align: center;
+      vertical-align: middle;
+      color: black;
+      font-weight: bolder;
+
+    }
+
+
+    .keterangan-box {
+      
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 14px;
+      gap: 8px;
+      width: fit-content;
+      margin-top: -10px;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .green { background-color: #00c853; }   /* > 20% */
+    .yellow { background-color: #ffd600; }  /* < 20% */
+    .red { background-color: #d50000; }     /* 0% */
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #0A4881;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+
+  footer h4 {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .marquee-container {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    height: 30px;
+    margin-left: 1rem;
+  }
+
+  .marquee {
+    white-space: nowrap;
+    position: absolute;
+    will-change: transform;
+    letter-spacing: 5px;
+  }
+
+  #displayAntrian,
+  h1{
+    text-align: center;
+  }
+
+#displayAntrian p {
+/*  text-transform: uppercase;*/
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+#displayAntrian h2 {
+  font-size: 3rem;
+  color: #007bff;
+}
+
+  
