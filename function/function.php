@@ -102,14 +102,6 @@ function queryPreparedInsert($query, $params = []) {
 }
 
 
-
-
-
-
-
-
-
-
 function kirimTaskBPJS($kodebooking, $taskid, $waktu) {
     // Konfigurasi
     $cons_id    = "22020";
