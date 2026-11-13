@@ -159,11 +159,18 @@ document.getElementById("displayNama").innerText = namaBersih;
   document.getElementById("displayDokter").innerText = data.dokter;
   document.getElementById("displayPoli").innerText = data.spesialis;
 
-  document.getElementById('notifSound').play();
+  document.getElementById('notifSound').play().catch(error => {
+    console.warn('Bunyi notifikasi tidak tersedia:', error);
+  });
 
   const teks = `Nomor antrian ${data.nomor}, atas nama ${namaBersih}, silakan menuju ${data.spesialis}, bersama ${data.dokter}.`;
 
 
+  if (typeof responsiveVoice === 'undefined') {
+    console.error('Layanan ResponsiveVoice gagal dimuat. Periksa koneksi internet.');
+    prosesPemanggilanBerikutnya();
+    return;
+  }
   responsiveVoice.speak(teks, "Indonesian Female", {
     rate: 0.9,
     onend: () => {
@@ -175,19 +182,17 @@ document.getElementById("displayNama").innerText = namaBersih;
 // ===== Cek Trigger =====
 async function checkTrigger() {
   try {
-    const trigger = await fetch("trigger.txt?" + new Date().getTime()).then(r => r.text());
-    const triggerId = parseInt(trigger.trim());
+    const response = await fetch("data-antrian.json?" + Date.now(), { cache: 'no-store' });
+    if (!response.ok) throw new Error('Gagal membaca data antrean: HTTP ' + response.status);
+    const data = await response.json();
 
-    if (triggerId > 0 && triggerId !== lastCallId) {
-      const data = await fetch("data-antrian.json?" + new Date().getTime()).then(r => r.json());
-
+    if (data.nomor && data.nama) {
       if (data.call_id && data.call_id !== lastCallId) {
         lastCallId = data.call_id;
         antrianPemanggilan.push(data);
         if (!sedangMemanggil) prosesPemanggilanBerikutnya();
       }
 
-      await fetch("reset-trigger.php");
     }
   } catch (e) {
     console.error("Error checkTrigger:", e);
